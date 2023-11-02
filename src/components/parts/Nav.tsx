@@ -1,7 +1,6 @@
 import { useRef } from "react";
-
+import { MdMenu } from "react-icons/md";
 import {
-  Icon,
   Drawer,
   DrawerOverlay,
   useDisclosure,
@@ -16,6 +15,17 @@ import {
   DrawerFooter,
   Text,
 } from "@chakra-ui/react";
+
+const navList = [
+  {
+    label: "Home",
+    destination: "/",
+  },
+  {
+    label: "Table of Contents",
+    destination: "/toc",
+  },
+];
 export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let btnRef = useRef<any>();
@@ -24,14 +34,18 @@ export default function Nav() {
       <IconButton
         isRound
         ref={btnRef}
-        colorScheme="teal"
         onClick={onOpen}
         position="fixed"
         left={2}
         top={2}
         aria-label="Open"
+        backgroundColor="brand.main"
+        color="white"
+        _hover={{
+          backgroundColor: "black",
+        }}
       >
-        <Icon />
+        <MdMenu size="24px" />
       </IconButton>
       <Drawer
         isOpen={isOpen}
@@ -42,24 +56,36 @@ export default function Nav() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton color="white" />
-          <DrawerHeader background="gray.100" paddingY={20}>
-            E.A. Poe Reader{" "}
+          <DrawerHeader
+            background="brand.main"
+            color="white"
+            paddingY={20}
+            fontSize={32}
+          >
+            E.A. Poe Reader
             <Text opacity="0.5" fontSize="xs">
-              v2.0
+              v2.1.0
             </Text>
           </DrawerHeader>
 
           <DrawerBody>
-            <List>
-              <ListItem>
-                <Link href="/">Home</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="/view">view</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="/toc">toc</Link>
-              </ListItem>
+            <List fontSize={20} mt={4} spacing={4}>
+              {navList.map((item) => {
+                return (
+                  <ListItem key={item.label}>
+                    <Link
+                      href={item.destination}
+                      _hover={{
+                        fontWeight: "600",
+                        color: "brand.main",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  </ListItem>
+                );
+              })}
             </List>
           </DrawerBody>
           <DrawerFooter fontSize="xs" opacity="0.5">

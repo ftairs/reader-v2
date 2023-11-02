@@ -4,6 +4,7 @@ import TocPage from "./components/views/TocPage";
 import View from "./components/views/View";
 import { theme } from "./theme";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ColorModeScript } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/view" element={<View />} />
         <Route path="/toc" element={<TocPage />} />
       </Routes>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     </ChakraProvider>
   );
 }

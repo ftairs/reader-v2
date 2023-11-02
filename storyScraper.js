@@ -13,7 +13,6 @@ metadata.metadata.results.map((item, index) => {
     // console.log(res.data);
     // const persons = res.data;
     // this.setState({ persons });
-
     // console.log(stories.length);
     // console.log(metadata.metadata.results.length);
 
@@ -52,7 +51,3 @@ metadata.metadata.results.map((item, index) => {
     // }
   });
 });
-
-// console.log(stories);
-
-// console.log(metadata.metadata.results);

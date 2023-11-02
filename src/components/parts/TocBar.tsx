@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import Toc from "./Toc";
 import {
-  Icon,
   Drawer,
   DrawerOverlay,
   useDisclosure,
@@ -11,6 +10,7 @@ import {
   DrawerBody,
   IconButton,
 } from "@chakra-ui/react";
+import { MdMenuBook } from "react-icons/md";
 export default function TocBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let btnRef = useRef<any>();
@@ -19,14 +19,18 @@ export default function TocBar() {
       <IconButton
         isRound
         ref={btnRef}
-        colorScheme="teal"
         onClick={onOpen}
         position="fixed"
         right={2}
         top={2}
         aria-label="Open"
+        backgroundColor="brand.main"
+        color="white"
+        _hover={{
+          backgroundColor: "black",
+        }}
       >
-        <Icon />
+        <MdMenuBook size="24px"></MdMenuBook>
       </IconButton>
       <Drawer
         isOpen={isOpen}
@@ -40,7 +44,7 @@ export default function TocBar() {
           <DrawerHeader>Table of Contents</DrawerHeader>
 
           <DrawerBody>
-            <Toc />
+            <Toc onClose={onClose} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

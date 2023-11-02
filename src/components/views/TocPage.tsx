@@ -1,7 +1,6 @@
 import { Flex, Heading, Stack } from "@chakra-ui/react";
 import Nav from "../parts/Nav";
 import Toc from "../parts/Toc";
-import TocBar from "../parts/TocBar";
 export default function TocPage() {
   return (
     <>

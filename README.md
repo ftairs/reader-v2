@@ -2,8 +2,8 @@ This project is a recreation of the Poe-Reader built in React. The data comes fr
 
 Phases:
 [x] Data
-[ ] Styles
 [ ] Interaction
+[ ] Styles
 
 Coming:
 
